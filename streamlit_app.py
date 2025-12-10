@@ -4,7 +4,6 @@ Run with: streamlit run streamlit_app.py
 """
 
 import streamlit as st
-import cv2
 import numpy as np
 from PIL import Image
 import json
@@ -12,6 +11,13 @@ import io
 import time
 import os
 from datetime import datetime
+
+# Handle cv2 import with fallback
+try:
+    import cv2
+except ImportError:
+    st.error("OpenCV (cv2) is not available. System dependencies may not be installed.")
+    st.stop()
 
 # Import enhanced pipeline
 from enhanced_pipeline import (
