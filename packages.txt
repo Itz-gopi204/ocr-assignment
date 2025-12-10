@@ -4,6 +4,11 @@ libxrender-dev
 libgomp1
 libglib2.0-0
 libgl1-mesa-glx
+libjpeg62-turbo
+zlib1g
+libtiff6
+libpng16-16
+libgl1-mesa-glx
 libopenblas-dev
 liblapack-dev
 libblas-dev

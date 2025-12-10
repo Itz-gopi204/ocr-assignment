@@ -13,12 +13,13 @@ import os
 from datetime import datetime
 
 # Handle cv2 import with fallback
+CV2_AVAILABLE = True
+CV2_ERROR = None
 try:
     import cv2
 except ImportError as e:
-    st.error(f"OpenCV (cv2) is not available. Please ensure system dependencies are installed. Error: {str(e)}")
-    st.info("If running in Streamlit Cloud or Docker, ensure packages.txt contains required system dependencies.")
-    st.stop()
+    CV2_AVAILABLE = False
+    CV2_ERROR = str(e)
 
 # Import enhanced pipeline
 from enhanced_pipeline import (
@@ -44,6 +45,12 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Check cv2 availability early
+if not CV2_AVAILABLE:
+    st.error("❌ OpenCV (cv2) is not available")
+    st.error(f"Technical error: {CV2_ERROR}")
+    st.stop()
 
 # ============================================
 # CUSTOM CSS
