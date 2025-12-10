@@ -15,8 +15,9 @@ from datetime import datetime
 # Handle cv2 import with fallback
 try:
     import cv2
-except ImportError:
-    st.error("OpenCV (cv2) is not available. System dependencies may not be installed.")
+except ImportError as e:
+    st.error(f"OpenCV (cv2) is not available. Please ensure system dependencies are installed. Error: {str(e)}")
+    st.info("If running in Streamlit Cloud or Docker, ensure packages.txt contains required system dependencies.")
     st.stop()
 
 # Import enhanced pipeline
