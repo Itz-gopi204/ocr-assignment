@@ -1,0 +1,45 @@
+{
+  "document_type": "Medication Administration Record",
+  "pii_extracted": {
+    "patient_info": {
+      "name": "TAB NALTIMA"
+    },
+    "dates": [
+      "11/4/25",
+      "16.4.25",
+      "12/4/20",
+      "18.4.05",
+      "15.4.25",
+      "17/4/25",
+      "15/4/25",
+      "2.4.25",
+      "14.4.25",
+      "21/4/25"
+    ],
+    "medications": [
+      "PAN",
+      "NICOGUM CHEWLE",
+      "RDS",
+      "MJ-LOPEZ",
+      "NICONUM CHEWIE",
+      "BOROV\nD",
+      "PIC\nR",
+      "CAP",
+      "PLO\nO",
+      "AM\nD",
+      "PIO\nT",
+      "DEKORANDIE",
+      "LOPEZ\nR",
+      "PIO\nR",
+      "HEPALIN PLUS"
+    ],
+    "medical_routes": [
+      "IV",
+      "PR",
+      "PIO"
+    ]
+  },
+  "timestamp": "2025-12-10T17:11:15.609223",
+  "ocr_confidence": 78.66005509641872,
+  "cleaned_text": "Drug (Approved Name)\n(6)\nINT- PAN\n10\nJose\n40 mg\nRoute Other Direction\nIV\noncea\nDay\n12\n14\n18\nate & Time | Signature\n11/4/25\n22\nDr. H.M\n24\n11\n12 13\n14 15 16 17\n8 19 20 21 22\nDrug (Approved Name)\n8\nTAB- TAXIM\n10\nDose\nRoute\nP10\nOther Direction\n12\nTwice a\n14\nDom\n18\nDate & Time Signature\n11/4/25/35. H.M\n24\n(22)\nDrug (Approved Name)\nSyp - HEPALIN PLUS\n6\n10\nDose\nPIO\nRoute Other Direction\nTwice a\nday\n12\n14\n18\nDate & Time Signature\n2.4.25 DR.BR.ash\n22\n24\n\u00d7\n2) 40MY\nIOVA\nH\nD\n0\nbrug (Approved Name)\n6\nTHROMBOPHOR GEL\n10\n0\naspectulst Summen Twee\nDose\nRoute Other Direction\n44\n12\n14\n18\nDate & Time Signature\n15.4.25\nPR. Rakesh\n22\n24\nDrug (Approved Name)\nNICOGUM CHEWLE\n6\n(10)\nDose\n2MY\nRoute\nOther Direction\nutimes\n(4)\n710\n12\non\n18)\n(2)\nAnd\nDate & Time\n16.4.25\nSignature\nDR.A. Mahesh\n24\n2 9(239)\nDrug (Approved Name)\nNICONUM CHEWIE\nX\nDose\n2mg\nRoute\nP10\nOther Direction\nStimes\nDrug (Approved Name)\nINJ-LOPEZ\nR.2\n6\n10\nDose\n1amp\nRoute. Other Direction\nIV\n12\n14\nDate & Time Signature\n15/4/25\nDns-RDSh.\n18-\n24\n\u00d7\nX\nDiman Hule\nDrug (Approved Name)\nCAP. BIFILAC\n6\nDose\nHP\n(0)\n12\nRoute Other Direction\n1 cap\nPIO\nTwicey\n14\n2 onst\nDate & Time Signature\n151425 DasRiDim\n18\n10)\n24\nDrug (Approved Name)\nCAP DEKORANDIE\n6\nDose\n1cap\nRoute\nPLO\nOther Direction\nonce 9\n12\n14\n18\n22\nDale & Time |Signature\n15/4/25\nDr.s.R.Dan\n21\nhim\n6\n10\n(12)\nDate & Time Signature\n1714125\n(22)\nDresRash.\n24\nBOROV\nDrug (Approved Name)\nI'MJ-LOPEZ\nR-2\nDose\n1001\nRoute\nIV\nOther Direction\nTwicey\n12\n14\nDate & Time\n12/4/20\nSignature\nDr.S.RIgh\n18\n(2) 200\n24\nForse modified\nDE-S.R.Dash\n0-14.4.25\n0\n:30AM\nDrug (Approved Name)\nTAB. PAN\n6\n10\nDose\nRoute\nPIO\nOther Direction\nonce a day\n14\n12\n40mg\n18\nDate & Time Signature\n17/4/25\nDM.S.R. Josh\n22\n24\nDrug (Approved Name)\nTAB NALTIMA\n6\n(10) 1/2tab\nDose\nSing\nPIC\nRoute Other Direction\nonce a\nday\n6 days\nDate & Time Signature 6days\n18.4.05\n12\n14\n18\nso modifica\nS.R. Dash\n0/21/4/25\n22\ntime 11 :0AM\n24"
+}

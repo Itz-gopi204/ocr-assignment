@@ -1,0 +1,106 @@
+{
+  "sample1": {
+    "document_type": "Medication Administration Record",
+    "pii_extracted": {
+      "patient_info": {
+        "name": "TAB NALTIMA"
+      },
+      "dates": [
+        "11/4/25",
+        "16.4.25",
+        "12/4/20",
+        "18.4.05",
+        "15.4.25",
+        "17/4/25",
+        "15/4/25",
+        "2.4.25",
+        "14.4.25",
+        "21/4/25"
+      ],
+      "medications": [
+        "PAN",
+        "NICOGUM CHEWLE",
+        "RDS",
+        "MJ-LOPEZ",
+        "NICONUM CHEWIE",
+        "BOROV\nD",
+        "PIC\nR",
+        "CAP",
+        "PLO\nO",
+        "AM\nD",
+        "PIO\nT",
+        "DEKORANDIE",
+        "LOPEZ\nR",
+        "PIO\nR",
+        "HEPALIN PLUS"
+      ],
+      "medical_routes": [
+        "IV",
+        "PR",
+        "PIO"
+      ]
+    }
+  },
+  "sample2": {
+    "document_type": "Hospital Progress Report",
+    "pii_extracted": {
+      "patient_info": {
+        "name": "DR.ARCHET",
+        "age": "364",
+        "sex": "M",
+        "uhid_no": "20250 410195",
+        "ipd_no": "9236-927883",
+        "bed_no": "10"
+      },
+      "organization": {
+        "name": "INSTITUTE OF MEDICAL SCIENCES & SUM HOSPITAL",
+        "university": "SIKSHA 'O' ANUSANDHAN\n(DEEMED TO BE UNIVERSITY",
+        "address": "K-8, Kalinga Nagar, Bhubaneswar"
+      },
+      "healthcare_providers": [
+        {
+          "name": "Dr. Hiranmaya Mohapatra\nAsa",
+          "department": "Psychiatry"
+        }
+      ],
+      "dates": [
+        "11/4/28",
+        "11/1-25"
+      ]
+    }
+  },
+  "sample3": {
+    "document_type": "Hospital Progress Report",
+    "pii_extracted": {
+      "patient_info": {
+        "name": "Santosh Pradhan",
+        "age": "364",
+        "sex": "14",
+        "uhid_no": "20250 4110195",
+        "ipd_no": "2236927833",
+        "bed_no": "10"
+      },
+      "organization": {
+        "name": "INSTITUTE OF MEDICAL SCIENCES & SUM HOSPITAL",
+        "university": "SIKSHA 'O' ANUSANDHAN\n(DEEMED TO BE UNIVERSITY",
+        "address": "K-8, Kalinga Nagar, Bhubaneswar"
+      },
+      "healthcare_providers": [
+        {
+          "name": "Dr. Soumya Ranjan Dasn\nAsst"
+        },
+        {
+          "name": "Dr. Soumya Ranjan Dasn",
+          "reg_no": "17112/2-09",
+          "department": "Psychiatry"
+        }
+      ],
+      "dates": [
+        "12/2-09",
+        "16/4/25",
+        "16/04/25"
+      ],
+      "diagnosis": "BEHAVIORAL DISORDER DUE TO USE OF"
+    }
+  }
+}

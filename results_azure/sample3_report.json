@@ -1,0 +1,37 @@
+{
+  "document_type": "Hospital Progress Report",
+  "pii_extracted": {
+    "patient_info": {
+      "name": "Santosh Pradhan",
+      "age": "364",
+      "sex": "14",
+      "uhid_no": "20250 4110195",
+      "ipd_no": "2236927833",
+      "bed_no": "10"
+    },
+    "organization": {
+      "name": "INSTITUTE OF MEDICAL SCIENCES & SUM HOSPITAL",
+      "university": "SIKSHA 'O' ANUSANDHAN\n(DEEMED TO BE UNIVERSITY",
+      "address": "K-8, Kalinga Nagar, Bhubaneswar"
+    },
+    "healthcare_providers": [
+      {
+        "name": "Dr. Soumya Ranjan Dasn\nAsst"
+      },
+      {
+        "name": "Dr. Soumya Ranjan Dasn",
+        "reg_no": "17112/2-09",
+        "department": "Psychiatry"
+      }
+    ],
+    "dates": [
+      "12/2-09",
+      "16/4/25",
+      "16/04/25"
+    ],
+    "diagnosis": "BEHAVIORAL DISORDER DUE TO USE OF"
+  },
+  "timestamp": "2025-12-10T17:11:40.464002",
+  "ocr_confidence": 79.55802047781566,
+  "cleaned_text": "BIS & SHYQDE FORMANO :P-2\nINSTITUTE OF MEDICAL SCIENCES & SUM HOSPITAL\n(Faculty of Medical Sciences)\nSIKSHA 'O' ANUSANDHAN\n(DEEMED TO BE UNIVERSITY)\nK-8, Kalinga Nagar, Bhubaneswar\nFABR\nPROGRESS REPORT\nPatient Name:\nSantosh Pradhan\nAge:\n364\nSex: M\nIPD No:\n423642783\nUHID No: 202504110145\nBed No :.\n10\nDATE & TIME\nPROGRESS NOTES\nTREATMENT/ADVICE\nSIGNATURE\nOF DOCTOR\n16/04/25\nClinical Psychology\n- In Observation - Wobbly gait\nPH/- Used to\nrun a Chichen Centre\n- Unemployed x 7-8 yrs.\nReported\nSiden\n- Muring of speech.\n- Irrelevant talks.\n- Att\" aroused but not\nsustained over a\nperiod of time\n- Irritable towards\nfamily member\n-\nAgitation\nLoose motion\n- Body Ache .\n- Heaviness of Head\n, On Interview - 40- Burning of vision\nIMS & SH/QUY FORM/NO. : P-2\nINSTITUTE OF MEDICAL SCIENCES & SUM HOSPITAL\n(Faculty of Medical Sciences)\nSIKSHA 'O' ANUSANDHAN\n(DEEMED TO BE UNIVERSITY)\nK-8, Kalinga Nagar, Bhubaneswar\nPatient Name:\nSantosh Pradhan\nPROGRESS REPORT\n6\nAge:\n364\nSex:\n14\nIPD No:\n2236927833\nUHID No: .\n20250 4110195\nBed No:\n10\nDATE &TIME\nPROGRESS NOTES\nTREATMENT/ADVICE\nSIGNATURE\nOF DOCTOR\nMENTAL AND BEHAVIORAL DISORDER DUE TO USE OF\n16/4/25\n3PM\nTHE SUBSTANCE\nVitals\nRx:\n1) INT THIAMINE (200) in 100 ml NS TID\n3) TOJ PAN (40) 1 VIAL IN OD B/BF\n4) Cap BIFILAC HP 1 cap BD\nBP - 118/ 72 mm Hg\nPR - 78/ Jun\nRR-16/nei\nT . 97.0\u00b0F\nSUS\n5) Cap DexORANGE I Cap OD morning\nDr. Soumya Ranjan Dasn\nAsst Professor, Dept. of Psychiatry\nRegd. No-17112/2-09\nIMS & SUM Hospital.BBSR\n6) Syp HEPALIV PLUS (IQUI) BD\n7) THROMBOPHOBE GEL for HA\n8) NICOGOM CHEWLET (2 (g) Q10\n-Agushum\nu\n(Contd.)\nALCOHOL, DEPENDANCE SYN SYNDROME, CURRENTLY USING\n2) INI LOPEZ (1 amp) clow IV BD and\nPro"
+}

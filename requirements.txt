@@ -1,0 +1,59 @@
+# OCR Pipeline for Handwritten Document PII Extraction
+# Requirements / Dependencies - Version 2.0 (Enhanced)
+
+# Core Image Processing
+opencv-python>=4.8.0
+numpy>=1.24.0
+Pillow>=10.0.0
+
+# OCR Engines
+pytesseract>=0.3.10
+easyocr>=1.7.0
+
+# NLP for PII Detection
+spacy>=3.6.0
+
+# Data Processing
+regex>=2023.6.3
+
+# Visualization (for Jupyter)
+matplotlib>=3.7.0
+
+# Jupyter Notebook
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# Web Interface (Streamlit)
+streamlit>=1.28.0
+
+# Optional: GPU acceleration for EasyOCR
+# torch>=2.0.0  # Uncomment if you have CUDA GPU
+
+# ============================================
+# INSTALLATION INSTRUCTIONS
+# ============================================
+#
+# 1. Create a virtual environment (recommended):
+#    python -m venv ocr_env
+#
+# 2. Activate the environment:
+#    Windows: ocr_env\Scripts\activate
+#    Linux/Mac: source ocr_env/bin/activate
+#
+# 3. Install dependencies:
+#    pip install -r requirements.txt
+#
+# 4. Install Tesseract OCR engine:
+#    Windows: Download from https://github.com/UB-Mannheim/tesseract/wiki
+#             Add to PATH: C:\Program Files\Tesseract-OCR
+#    Linux: sudo apt-get install tesseract-ocr
+#    Mac: brew install tesseract
+#
+# 5. Download spaCy model:
+#    python -m spacy download en_core_web_sm
+#
+# 6. Run Options:
+#    - Jupyter Notebook: jupyter notebook ocr_pii_pipeline.ipynb
+#    - Streamlit App:    streamlit run streamlit_app.py
+#    - Python Script:    python enhanced_pipeline.py
+# ============================================

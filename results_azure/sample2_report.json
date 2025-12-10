@@ -1,0 +1,31 @@
+{
+  "document_type": "Hospital Progress Report",
+  "pii_extracted": {
+    "patient_info": {
+      "name": "DR.ARCHET",
+      "age": "364",
+      "sex": "M",
+      "uhid_no": "20250 410195",
+      "ipd_no": "9236-927883",
+      "bed_no": "10"
+    },
+    "organization": {
+      "name": "INSTITUTE OF MEDICAL SCIENCES & SUM HOSPITAL",
+      "university": "SIKSHA 'O' ANUSANDHAN\n(DEEMED TO BE UNIVERSITY",
+      "address": "K-8, Kalinga Nagar, Bhubaneswar"
+    },
+    "healthcare_providers": [
+      {
+        "name": "Dr. Hiranmaya Mohapatra\nAsa",
+        "department": "Psychiatry"
+      }
+    ],
+    "dates": [
+      "11/4/28",
+      "11/1-25"
+    ]
+  },
+  "timestamp": "2025-12-10T17:11:28.503756",
+  "ocr_confidence": 75.59608540925262,
+  "cleaned_text": "I. P. No\nPLAN OF CARE\n> CIWA.M\n& Mat .\nb\nRestraints\nY\nN\n7\nType\nInvestigation Advised\nTreatment Advised\nRX 1\nCBC\nKFT\n1) INI. THIAMINE (200) I\n100 ml NS TID\nLFF\n5.electrolytes\n2) INI. LOPEZ (1amp) slaw\n444\nECG\nIU IDS USOS\n3) IN) PAN (40) ( via) ZU OD\nB/RB\nsamyou/S\u00b7Lipase\n94T\nT31T4ITSU\n5) MAB TAXIM - 0 (200) 1 MB BD\nPPBS /FBS\nNCCT Brain\nUDS\nReason\nDiet\nConsistency\nNormal\nSoft\nLiquid\nTube Feeds\nType\nNormal\nDiabetic Lowsalt Other\nFasting\nPreventive Care\nP G Residem\nDept. of Psychiatry\nIMS & SUM Hospe ESP\nReferences\nApu.\nResident Signature\nFull Name : DR.ARCHET\nMobile No .:\nPRUME\nDr. Hiranmaya Mohapatra\nAsa Professor Dept. of Psychiatry\nRend.No-1943\nIMS & # M Hospita SBSR\nConsultant Signature\nFull Name DR. WIRANMAYA\nMobile No .:\nMOHAPATRA\nDate:\nTimer\n00\nDate:\nTime:\nIMS & SH (CD/ FORM/ NO. : P-2\nE\nNAHH\nINSTITUTE OF MEDICAL SCIENCES & SUM HOSPITAL\n(Faculty of Medical Sciences)\nSIKSHA 'O' ANUSANDHAN\n(DEEMED TO BE UNIVERSITY)\nK-8, Kalinga Nagar, Bhubaneswar\nPROGRESS REPORT\nPradhan\nAge:\n364\nSex:\nM\nUHID No: 20250 410195\nDept .: W-1\nBed No:\n10\nPatient Name:\nSantosh\nIPD No: 9236-927883\n-\nDATE &TIME\nPROGRESS NOTES\nTREATMENT/ADVICE\n11/4/28\n3:00pm\npaticul- recieved from ODD to ward-1\non date = 11/1-25: fine -> 12:00 PM\nD1) MENTAL OXY BEHAVIOURAL DISORDER BUT TO\nUSE OF ALCOHOL, DEPENDENDE SYNDROME\nCURRENTLY TAKING THE SUBSTANCE | 190-24 +F 17:52\n24\nVitals\nBP-\nRx\nin\nInj THIAMINE (200)\n100 ml NS TID\nPR-\nRR\nTemp-\n(2) Inj LOPEZ (1 amp) slow\nIV TDS And SOS\n3 Iny PAN (0) 1 viel IV OD\nB/Bf\n4) Tab. TAXIM-O (200)\n1 2xb. BD\n(Conld.)\n(9)"
+}
