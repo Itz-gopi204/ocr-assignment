@@ -19,6 +19,14 @@ import json
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 from datetime import datetime
+import numpy as np
+
+# Handle cv2 import
+try:
+    import cv2
+    CV2_AVAILABLE = True
+except ImportError:
+    CV2_AVAILABLE = False
 
 # Load environment variables from .env file
 try:
@@ -525,6 +533,117 @@ class AzurePIIExtractor:
         return None
 
 
+def create_redacted_image(image: np.ndarray, text_boxes: List[Dict],
+                          pii_values: List[str], page_width: int = None,
+                          page_height: int = None) -> np.ndarray:
+    """
+    Create a redacted version of the image by drawing rectangles over PII regions.
+
+    Args:
+        image: Original image as numpy array (BGR format)
+        text_boxes: List of text boxes with 'text' and 'bbox' (x, y, w, h) in page units
+        pii_values: List of PII values to redact
+        page_width: Width of page in Azure units (for scaling)
+        page_height: Height of page in Azure units (for scaling)
+
+    Returns:
+        Redacted image as numpy array
+    """
+    if not CV2_AVAILABLE:
+        return image
+
+    # Create a copy of the image
+    redacted = image.copy()
+    img_height, img_width = redacted.shape[:2]
+
+    # Normalize PII values for matching
+    pii_normalized = [str(v).lower().strip() for v in pii_values if v]
+
+    # Color codes for different PII types (BGR format)
+    redaction_color = (0, 0, 0)  # Black for general redaction
+
+    for box in text_boxes:
+        text = box.get('text', '').lower().strip()
+        bbox = box.get('bbox', (0, 0, 0, 0))
+
+        # Check if this text contains any PII
+        should_redact = False
+        for pii in pii_normalized:
+            if pii and len(pii) > 1:
+                # Check if PII is in the text or text is in PII
+                if pii in text or text in pii:
+                    should_redact = True
+                    break
+                # Also check for partial matches (names, IDs)
+                pii_words = pii.split()
+                text_words = text.split()
+                for pw in pii_words:
+                    if len(pw) > 2 and pw in text:
+                        should_redact = True
+                        break
+
+        if should_redact:
+            x, y, w, h = bbox
+
+            # Scale coordinates if page dimensions provided
+            if page_width and page_height and page_width > 0 and page_height > 0:
+                scale_x = img_width / page_width
+                scale_y = img_height / page_height
+                x = int(x * scale_x)
+                y = int(y * scale_y)
+                w = int(w * scale_x)
+                h = int(h * scale_y)
+
+            # Ensure coordinates are within bounds
+            x = max(0, min(x, img_width - 1))
+            y = max(0, min(y, img_height - 1))
+            w = min(w, img_width - x)
+            h = min(h, img_height - y)
+
+            # Add some padding
+            padding = 3
+            x = max(0, x - padding)
+            y = max(0, y - padding)
+            w = min(w + 2 * padding, img_width - x)
+            h = min(h + 2 * padding, img_height - y)
+
+            # Draw filled rectangle
+            cv2.rectangle(redacted, (x, y), (x + w, y + h), redaction_color, -1)
+
+    return redacted
+
+
+def extract_pii_values(pii_extracted: Dict) -> List[str]:
+    """
+    Extract all PII values from the structured pii_extracted dictionary.
+
+    Args:
+        pii_extracted: Dictionary with extracted PII data
+
+    Returns:
+        List of PII string values
+    """
+    values = []
+
+    for category, data in pii_extracted.items():
+        if isinstance(data, dict):
+            for key, value in data.items():
+                if value:
+                    values.append(str(value))
+        elif isinstance(data, list):
+            for item in data:
+                if isinstance(item, dict):
+                    for k, v in item.items():
+                        if v:
+                            values.append(str(v))
+                elif item:
+                    values.append(str(item))
+        elif data:
+            values.append(str(data))
+
+    return values
+
+
 def process_with_azure(image_path: str = None, image_bytes: bytes = None,
                        endpoint: str = None, api_key: str = None) -> Dict:
     """
@@ -569,6 +688,19 @@ def process_with_azure(image_path: str = None, image_bytes: bytes = None,
     pii_result['timestamp'] = datetime.now().isoformat()
     pii_result['ocr_confidence'] = result['avg_confidence']
     pii_result['cleaned_text'] = result['text']
+
+    # Add boxes for redaction support
+    pii_result['text_boxes'] = result.get('boxes', [])
+
+    # Get page dimensions from raw result
+    raw_result = result.get('raw_result')
+    if raw_result and raw_result.pages:
+        page = raw_result.pages[0]
+        pii_result['page_width'] = page.width
+        pii_result['page_height'] = page.height
+    else:
+        pii_result['page_width'] = None
+        pii_result['page_height'] = None
 
     return pii_result
 

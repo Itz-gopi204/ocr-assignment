@@ -30,7 +30,10 @@ from enhanced_pipeline import (
 
 # Import Azure Document Intelligence
 try:
-    from azure_ocr import process_with_azure, AzureConfig, AZURE_AVAILABLE
+    from azure_ocr import (
+        process_with_azure, AzureConfig, AZURE_AVAILABLE,
+        create_redacted_image, extract_pii_values
+    )
     AZURE_READY = AZURE_AVAILABLE and AzureConfig().is_configured()
 except ImportError:
     AZURE_READY = False
@@ -218,6 +221,22 @@ with tab1:
                             azure_result = process_with_azure(image_bytes=image_bytes)
                             processing_time = (time.time() - start_time) * 1000
 
+                            # Load original image for redaction
+                            nparr = np.frombuffer(image_bytes, np.uint8)
+                            original_image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+
+                            # Create redacted image
+                            pii_extracted = azure_result.get('pii_extracted', {})
+                            pii_values = extract_pii_values(pii_extracted)
+                            text_boxes = azure_result.get('text_boxes', [])
+                            page_width = azure_result.get('page_width')
+                            page_height = azure_result.get('page_height')
+
+                            redacted_image = create_redacted_image(
+                                original_image, text_boxes, pii_values,
+                                page_width, page_height
+                            )
+
                             # Convert Azure result to standard format for display
                             results = {
                                 'filename': uploaded_file.name,
@@ -227,6 +246,8 @@ with tab1:
                                 'cleaned_text': azure_result.get('cleaned_text', ''),
                                 'ocr_confidence': azure_result.get('ocr_confidence', 0),
                                 'use_azure': True,
+                                'original_image': original_image,
+                                'redacted_image': redacted_image,
                                 'metrics': {
                                     'timing': {'total_ms': processing_time},
                                     'ocr_stats': {'avg_confidence': azure_result.get('ocr_confidence', 0)}
@@ -370,6 +391,25 @@ with tab2:
             st.success(f"Processed with Azure Document Intelligence | Confidence: {results.get('ocr_confidence', 0):.1f}%")
             st.subheader(f"Document Type: {results.get('document_type', 'Unknown')}")
 
+        # For Azure results, show images and PII
+        if is_azure:
+            # Show Image Comparison for Azure
+            if 'original_image' in results and 'redacted_image' in results:
+                st.subheader("Image Comparison")
+                img_col1, img_col2 = st.columns(2)
+
+                with img_col1:
+                    st.markdown("**Original Image**")
+                    original_rgb = cv2.cvtColor(results['original_image'], cv2.COLOR_BGR2RGB)
+                    st.image(original_rgb, use_container_width=True)
+
+                with img_col2:
+                    st.markdown("**Redacted Image**")
+                    redacted_rgb = cv2.cvtColor(results['redacted_image'], cv2.COLOR_BGR2RGB)
+                    st.image(redacted_rgb, use_container_width=True)
+
+                st.info("Black boxes indicate redacted PII regions detected in the document.")
+
         # For Azure results, show PII Extracted in a nice format
         if is_azure and 'pii_extracted' in results:
             st.subheader("Extracted PII Information")
@@ -491,7 +531,7 @@ with tab2:
         dl_col1, dl_col2, dl_col3 = st.columns(3)
 
         with dl_col1:
-            # Download redacted image (only for EasyOCR)
+            # Download redacted image (works for both Azure and EasyOCR)
             if 'redacted_image' in results:
                 _, buffer = cv2.imencode('.jpg', results['redacted_image'])
                 st.download_button(
@@ -500,6 +540,8 @@ with tab2:
                     file_name="redacted_image.jpg",
                     mime="image/jpeg"
                 )
+            else:
+                st.info("No redacted image available")
 
         with dl_col2:
             # Download JSON report
