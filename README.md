@@ -18,12 +18,15 @@ Input (JPEG) → Pre-processing → OCR → Text Cleaning → PII Detection → 
 
 ## Quick Start
 
+
 ### 1. Install Dependencies
+
 
 ```bash
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ```
+
 
 ### 2. Configure Azure (Recommended)
 
